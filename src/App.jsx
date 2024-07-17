@@ -9,13 +9,9 @@ import axios from 'axios'
 function App() {
   const [scannedProducts, setScannedProducts] = useState([]);
 
-
-
-
   return (
     <div className='bg-black'>
       <div >
-
         <Box></Box>
       </div>
     </div>

@@ -5,14 +5,18 @@ import './App.css'
 import { Button } from "@/components/ui/button"
 import Box from './myComponents/Box'
 import axios from 'axios'
+import ResetButton from './myComponents/Rest'
+
 
 function App() {
-  const [scannedProducts, setScannedProducts] = useState([]);
+
 
   return (
     <div className='bg-black'>
       <div >
         <Box></Box>
+
+
       </div>
     </div>
   )

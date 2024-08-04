@@ -10,60 +10,29 @@ import {
 } from "../components/ui/table"
 import { useEffect, useState } from "react";
 import axios from 'axios'
+import { Button } from "@/components/ui/button"
 
 
 
 
 
-const invoices = [
-    {
-        invoice: "INV001",
-        paymentStatus: "Paid",
-        totalAmount: "$250.00",
-        paymentMethod: "Credit Card",
-    },
-    {
-        invoice: "INV002",
-        paymentStatus: "Pending",
-        totalAmount: "$150.00",
-        paymentMethod: "PayPal",
-    },
-    {
-        invoice: "INV003",
-        paymentStatus: "Unpaid",
-        totalAmount: "$350.00",
-        paymentMethod: "Bank Transfer",
-    },
-    {
-        invoice: "INV004",
-        paymentStatus: "Paid",
-        totalAmount: "$450.00",
-        paymentMethod: "Credit Card",
-    },
-    {
-        invoice: "INV005",
-        paymentStatus: "Paid",
-        totalAmount: "$550.00",
-        paymentMethod: "PayPal",
-    },
-    {
-        invoice: "INV006",
-        paymentStatus: "Pending",
-        totalAmount: "$200.00",
-        paymentMethod: "Bank Transfer",
-    },
-    {
-        invoice: "INV007",
-        paymentStatus: "Unpaid",
-        totalAmount: "$300.00",
-        paymentMethod: "Credit Card",
-    },
-]
+
 
 export default function Box() {
 
     const [scannedProducts, setScannedProducts] = useState([])
     const [amount, setAmount] = useState(0);
+
+    const resetting = async () => {
+        // Clear the frontend state
+        setScannedProducts([]);
+        // Optionally, send a request to the backend to reset the products
+        try {
+            await axios.post("https://nfc-6ksa.onrender.com/reset-products");
+        } catch (error) {
+            console.error("Error resetting products:", error);
+        }
+    };
 
     useEffect(() => {
         fetch("https://nfc-6ksa.onrender.com/pricing").then(async (res) => {
@@ -116,6 +85,7 @@ export default function Box() {
 
             <div className="my-5 text-white">
                 <h1 className="text-4xl">Total Amount: {amount}</h1>
+                <Button variant="outline" className="text-black m-5" onClick={resetting} >Reset</Button>
             </div>
         </div>
 

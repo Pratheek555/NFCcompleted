@@ -86,8 +86,7 @@ export default function Box() {
             <div className="my-5 text-white">
                 <h1 className="text-4xl">Total Amount: {amount}</h1>
                 <Button variant="outline" className="text-black m-5" onClick={resetting} >Reset</Button>
-                <Button variant="outline" className="text-black m-5" onClick={resetting} >Reset</Button>
-                <Button variant="outline" className="text-black m-5" onClick={resetting} >Reset</Button>
+
             </div>
         </div>
 
